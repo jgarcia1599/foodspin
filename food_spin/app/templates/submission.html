@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Preferences Collection Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="../../static/css/sharablestyle.css">
+
+</head>
+<body>
+{% if event.status != 'Pending' %}
+<h1>Submit your preferences for: {{ event.name }}</h1>
+<br><br>
+<div>
+  <p><a href="{{ url }}" class="copy-click" data-tooltip-text="Click to copy" data-tooltip-text-copied="✔ Copied to clipboard">Click Here </a> to share with your friends.</p>
+  <h4>Current Preferences:</h4>
+  {% for preference in submission.preferences.all %}
+  <li>{{ preference.name }}</li>
+  {% endfor %}
+</div>
+<form class="cf" method='post'>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Submit" id="input-submit">
+</form>
+{% if user == event.host %}
+<form method='post'>
+  {% csrf_token %}
+  <input type='submit' value='Done Collecting Submissions' name='conclude'>
+</form>
+{% endif %}
+{% else %}
+<h4>Done collecting submissions. Pending results.</h4>
+{% endif %}
+</body>
+</html>

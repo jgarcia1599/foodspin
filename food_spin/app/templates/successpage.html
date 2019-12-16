@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Success</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="../../static/css/introstyle.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+
+  <h1>Your Event is Successfully Created! {{event.name}} should go to the following restaurant: </h1>
+  
+  <h2>{{restaurant.restaurant_name}}</h2>
+  <img src={{restaurant.image_url}}>
+  <p style="font-size:30px;">Location: {{restaurant.address}}</p><br>
+  <p style="font-size:30px;">Reserve the restaurant by clicking the following <a href={{restaurant.yelp_url}}>LINK</a></p>
+
+<!-- partial -->
+</body>
+</html>

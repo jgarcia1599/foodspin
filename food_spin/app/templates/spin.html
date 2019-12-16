@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+
+  <title>Spin your restaurant choice</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" /><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'><link rel="stylesheet" href="../static/css/spinstyle.css">
+<!-- 
+  <span style="font-size:18px;">   </span><span style="font-size:24px;"><meta http-equiv="refresh" content="10;URL=result"> </span> -->
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/introstyle.css">
+{% if user.is_authenticated %}
+  <h4>Signed in as: {{ user.username }}!</h4>
+{% else %}
+  <h5>Not logged in.</h5>
+{% endif %}
+
+<h2> I'm Feeling Lucky :P</h2>
+
+
+<div id="wrapper">
+            
+        <div id="wheel">
+            <div id="inner-wheel">
+                <div class="sec"><span class="fa fa-bell-o"></span></div>
+                <div class="sec"><span class="fa fa-comment-o"></span></div>
+                <div class="sec"><span class="fa fa-smile-o"></span></div>
+                <div class="sec"><span class="fa fa-heart-o"></span></div>
+                <div class="sec"><span class="fa fa-star-o"></span></div>
+                <div class="sec"><span class="fa fa-lightbulb-o"></span></div>
+            </div>       
+           
+            <div id="spin">
+                <div id="inner-spin"></div>
+            </div>
+            
+            <div id="shine"></div>
+        </div>
+        
+        
+        <div id="txt"></div>
+  </div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../static/js/spinscript.js"></script>
+
+</br></br>
+{% if user.is_authenticated %}
+<div align = "right"><a href = "createevent"><p style="color:grey;">Create a new event!</p></a></div>
+</br></br>
+<div align = "right"><a href = "profile">My Profile</a></div>
+<div align = "right"><a href = "logout">Logout</a></div>
+{% else %}
+<div align = "right"><a href = "login">Login</a></div>
+<div align = "right"><a href = "signup">Sign Up</a></div>
+{% endif %}
+</body>
+</html>
